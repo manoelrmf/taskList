@@ -39,7 +39,7 @@ public class TarefaRestController {
     @PatchMapping("descricao/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Tarefa editarDescricao(@PathVariable("id") Long id, @RequestBody Tarefa tarefa) {
-        return service.updateDescricao(id, tarefa.getDescricao());
+        return service.updateDescricao(id, tarefa.getTxDescricao());
     }
 
     @PutMapping("/{id}")

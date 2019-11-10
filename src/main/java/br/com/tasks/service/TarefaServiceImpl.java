@@ -59,7 +59,7 @@ public class TarefaServiceImpl implements TarefaService {
     public Tarefa updateDescricao(Long id, String descricao) {
 
         Tarefa tarefa = dao.findById(idValido(id));
-        tarefa.setDescricao(descricao);
+        tarefa.setTxDescricao(descricao);
         return tarefa;
     }
 
