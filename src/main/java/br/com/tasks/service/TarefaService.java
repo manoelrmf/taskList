@@ -19,4 +19,5 @@ public interface TarefaService {
 
     Tarefa updateTitulo(Long id, String titulo);
 
+    Tarefa updateDescricao(Long id, String descricao);
 }

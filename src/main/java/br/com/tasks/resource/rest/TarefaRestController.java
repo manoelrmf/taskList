@@ -30,11 +30,16 @@ public class TarefaRestController {
         service.delete(id);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("titulo/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Tarefa editarTitulo(@PathVariable("id") Long id, @RequestBody Tarefa tarefa) {
-
         return service.updateTitulo(id, tarefa.getTitulo());
+    }
+
+    @PatchMapping("descricao/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Tarefa editarDescricao(@PathVariable("id") Long id, @RequestBody Tarefa tarefa) {
+        return service.updateDescricao(id, tarefa.getDescricao());
     }
 
     @PutMapping("/{id}")

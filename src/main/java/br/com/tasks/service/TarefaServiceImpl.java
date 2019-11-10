@@ -55,6 +55,14 @@ public class TarefaServiceImpl implements TarefaService {
         return tarefa;
     }
 
+    @Override
+    public Tarefa updateDescricao(Long id, String descricao) {
+
+        Tarefa tarefa = dao.findById(idValido(id));
+        tarefa.setDescricao(descricao);
+        return tarefa;
+    }
+
     private Long idValido(Long id) {
         if (id <= 0) {
             throw new IdNaoValidoServiceException("Valor do campo id está invalido. Deve ser uma valor inteiro maior que zero.");
