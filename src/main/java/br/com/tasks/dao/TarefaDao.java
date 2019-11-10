@@ -15,4 +15,6 @@ public interface TarefaDao {
     Tarefa findById(Long id);
 
     List<Tarefa> findAll();
+
+    List<Tarefa> buscaTarefasPendentes();
 }

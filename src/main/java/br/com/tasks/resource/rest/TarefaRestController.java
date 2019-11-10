@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.w3c.dom.ls.LSException;
 
 import java.net.URI;
 import java.util.List;
@@ -76,4 +77,11 @@ public class TarefaRestController {
     public List<Tarefa> listar() {
         return service.findAll();
     }
+
+    @GetMapping("/tarefasPendentes")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Tarefa> listarTarefasPendentes(){
+        return service.buscaTarefasPendentes();
+    }
+
 }

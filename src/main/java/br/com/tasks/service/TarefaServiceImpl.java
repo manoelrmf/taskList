@@ -56,6 +56,11 @@ public class TarefaServiceImpl implements TarefaService {
     }
 
     @Override
+    public List<Tarefa> buscaTarefasPendentes() {
+        return dao.buscaTarefasPendentes();
+    }
+
+    @Override
     public Tarefa updateDescricao(Long id, String descricao) {
 
         Tarefa tarefa = dao.findById(idValido(id));
