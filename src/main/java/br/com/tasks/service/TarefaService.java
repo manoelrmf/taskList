@@ -17,4 +17,6 @@ public interface TarefaService {
 
     List<Tarefa> findAll();
 
+    Tarefa updateTitulo(Long id, String titulo);
+
 }

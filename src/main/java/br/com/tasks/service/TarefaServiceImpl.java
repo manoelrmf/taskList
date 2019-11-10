@@ -47,6 +47,13 @@ public class TarefaServiceImpl implements TarefaService {
 
         return dao.findAll();
     }
+    @Override
+    public Tarefa updateTitulo(Long id, String titulo) {
+
+        Tarefa tarefa = dao.findById(idValido(id));
+        tarefa.setTitulo(titulo);
+        return tarefa;
+    }
 
     private Long idValido(Long id) {
         if (id <= 0) {
