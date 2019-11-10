@@ -1,0 +1,10 @@
+
+*.class
+
+*.lst
+
+target/tomcat/logs/
+
+*.properties
+
+*.xml
