@@ -7,10 +7,17 @@ public enum StatusTarefaEnum {
     ATR(1, "Em atraso"),
     CON(2, "Concluida");
 
+    private Integer id;
     private String status;
 
-    StatusTarefaEnum(int i, String status) {
+    private StatusTarefaEnum(Integer id, String status) {
+        this.id = id;
         this.status = status;
+    }
+
+    @JsonValue
+    public Integer getId() {
+        return id;
     }
 
     @JsonValue
