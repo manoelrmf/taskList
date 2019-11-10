@@ -78,10 +78,20 @@ public class TarefaRestController {
         return service.findAll();
     }
 
-    @GetMapping("/tarefasPendentes")
+    @GetMapping("/pendentes")
     @ResponseStatus(HttpStatus.OK)
     public List<Tarefa> listarTarefasPendentes(){
         return service.buscaTarefasPendentes();
     }
+
+    @GetMapping("/emAtraso")
+    @ResponseStatus(HttpStatus.OK)
+    public  List<Tarefa> listarTarefasEmAtraso(){ return  service.buscaTarefasEmAtraso(); }
+
+    @GetMapping("/concluidas")
+    @ResponseStatus(HttpStatus.OK)
+    public  List<Tarefa> listarTarefasConcluidas(){ return  service.buscaTarefasConcluidas(); }
+
+
 
 }

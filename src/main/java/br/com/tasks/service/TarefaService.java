@@ -19,6 +19,10 @@ public interface TarefaService {
 
     List<Tarefa> buscaTarefasPendentes();
 
+    List<Tarefa> buscaTarefasEmAtraso();
+
+    List<Tarefa> buscaTarefasConcluidas();
+
     Tarefa updateTitulo(Long id, String titulo);
 
     Tarefa updateDescricao(Long id, String descricao);

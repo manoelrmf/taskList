@@ -59,11 +59,11 @@ public class TarefaDaoImpl implements TarefaDao {
     }
 
     @Override
-    public List<Tarefa> buscaTarefasPendentes(){
+    public List<Tarefa> buscaTarefasPorStatus(int idStatus){
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Tarefa> result = cb.createQuery(Tarefa.class);
         Root<Tarefa> tarefas = result.from(Tarefa.class);
-        Predicate p = cb.equal(tarefas.get("inStatus"), StatusTarefaEnum.AGR.getId());
+        Predicate p = cb.equal(tarefas.get("inStatus"), idStatus);
         result.select(tarefas).where(p);
         TypedQuery<Tarefa> theQuery = entityManager.createQuery(result);
         List<Tarefa> resultadoTarefas = theQuery.getResultList();

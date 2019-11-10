@@ -16,5 +16,5 @@ public interface TarefaDao {
 
     List<Tarefa> findAll();
 
-    List<Tarefa> buscaTarefasPendentes();
+    List<Tarefa> buscaTarefasPorStatus(int id);
 }

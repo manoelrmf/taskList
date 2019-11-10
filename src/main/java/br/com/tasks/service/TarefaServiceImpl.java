@@ -1,6 +1,7 @@
 package br.com.tasks.service;
 
 import br.com.tasks.dao.TarefaDao;
+import br.com.tasks.domain.StatusTarefaEnum;
 import br.com.tasks.domain.Tarefa;
 import br.com.tasks.exception.IdNaoValidoServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,17 @@ public class TarefaServiceImpl implements TarefaService {
 
     @Override
     public List<Tarefa> buscaTarefasPendentes() {
-        return dao.buscaTarefasPendentes();
+        return dao.buscaTarefasPorStatus(StatusTarefaEnum.AGR.getId());
+    }
+
+    @Override
+    public List<Tarefa> buscaTarefasEmAtraso() {
+        return dao.buscaTarefasPorStatus(StatusTarefaEnum.ATR.getId());
+    }
+
+    @Override
+    public List<Tarefa> buscaTarefasConcluidas() {
+        return dao.buscaTarefasPorStatus(StatusTarefaEnum.CON.getId());
     }
 
     @Override
