@@ -17,8 +17,11 @@ public class Tarefa implements Serializable {
     @Column(nullable = false)
     private String titulo;
 
-    @Column(name = "txdescricao")
-    private String descricao;
+    @Column(name = "tx_descricao")
+    private String txDescricao;
+
+    @Column(name = "in_status", nullable = false)
+    private Integer inStatus;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_inicio")
@@ -53,12 +56,20 @@ public class Tarefa implements Serializable {
         this.dataInicio = dataInicio;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getTxDescricao() {
+        return txDescricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setTxDescricao(String txDescricao) {
+        this.txDescricao = txDescricao;
+    }
+
+    public Integer getInStatus() {
+        return inStatus;
+    }
+
+    public void setInStatus(Integer inStatus) {
+        this.inStatus = inStatus;
     }
 
     public Date getDataFinal() {
