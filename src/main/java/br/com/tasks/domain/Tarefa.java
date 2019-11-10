@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tb_tarefa")
@@ -84,20 +85,18 @@ public class Tarefa implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Tarefa tarefa = (Tarefa) o;
-
-        return id != null ? id.equals(tarefa.id) : tarefa.id == null;
+        return Objects.equals(id, tarefa.id);
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-        return "Curso{" +
+        return "Tarefa{" +
                 "id=" + id +
                 '}';
     }
