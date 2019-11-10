@@ -3,9 +3,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum StatusTarefaEnum {
 
+    AGR(0, "Aguardando"),
     ATR(1, "Em atraso"),
-    PEN(1, "Aguardando"),
-    CON(1, "Concluida");
+    CON(2, "Concluida");
 
     private String status;
 
