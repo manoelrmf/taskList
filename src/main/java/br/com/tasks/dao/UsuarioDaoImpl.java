@@ -1,15 +1,12 @@
 package br.com.tasks.dao;
 
-import br.com.tasks.domain.Tarefa;
 import br.com.tasks.domain.Usuario;
 import br.com.tasks.exception.NaoExisteDaoException;
-import org.jboss.jandex.TypeTarget;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -57,6 +54,17 @@ public class UsuarioDaoImpl implements UsuarioDao {
         return entityManager
                 .createQuery("select c from Usuario c", Usuario.class)
                 .getResultList();
+    }
+
+    public Usuario findByLoginAndPassword(String txLogin, String txSenha){
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Usuario> result = cb.createQuery(Usuario.class);
+        Root<Usuario> usuarios = result.from(Usuario.class);
+        Predicate pLogin = cb.like(usuarios.get("txLogin"), "%" + txLogin + "%");
+        Predicate pSenha = cb.like(usuarios.get("txSenha"), "%" + txSenha + "%");
+        Predicate p = cb.and(pLogin, pSenha);
+        result.select(usuarios).where(p);
+        return entityManager.createQuery(result).getSingleResult();
     }
 
 }

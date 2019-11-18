@@ -17,4 +17,7 @@ public interface UsuarioDao {
 
     List<Usuario> findAll();
 
+    Usuario findByLoginAndPassword(String txLogin,String txPassword);
+
+
 }
