@@ -1,13 +1,16 @@
-package br.com.tasks.service.tarefa;
+package br.com.tasks.service;
 
 import br.com.tasks.dao.TarefaDao;
+import br.com.tasks.dao.UsuarioDao;
 import br.com.tasks.domain.StatusTarefaEnum;
 import br.com.tasks.domain.Tarefa;
+import br.com.tasks.domain.Usuario;
 import br.com.tasks.exception.IdNaoValidoServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,6 +19,9 @@ public class TarefaServiceImpl implements TarefaService {
 
     @Autowired
     private TarefaDao dao;
+
+    @Autowired
+    private UsuarioDao daoUsuario;
 
     @Override
     public void save(Tarefa tarefa) {
@@ -77,6 +83,13 @@ public class TarefaServiceImpl implements TarefaService {
         tarefa.setTxDescricao(descricao);
         return tarefa;
     }
+
+    @Override
+    public List<Tarefa> buscaTarefasPorUsuario(Long id){
+        Usuario usuario = daoUsuario.findById(idValido(id));
+        return dao.buscaTarefasPorUsuario(usuario);
+    }
+
 
     private Long idValido(Long id) {
         if (id <= 0) {

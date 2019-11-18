@@ -1,6 +1,7 @@
 package br.com.tasks.resource.rest;
 
 import br.com.tasks.domain.Tarefa;
+import br.com.tasks.domain.Usuario;
 import br.com.tasks.service.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -92,6 +93,10 @@ public class TarefaRestController {
     @ResponseStatus(HttpStatus.OK)
     public  List<Tarefa> listarTarefasConcluidas(){ return  service.buscaTarefasConcluidas(); }
 
-
+    @GetMapping("/usuario/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Tarefa> listarTarefasDoUsuario(@PathVariable Long id){
+        return service.buscaTarefasPorUsuario(id);
+    }
 
 }
