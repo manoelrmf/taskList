@@ -57,6 +57,19 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                         .build(),
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
+    @ExceptionHandler({javax.persistence.NoResultException.class})
+    public ResponseEntity<Object> consultaoSemResultado(javax.persistence.NoResultException ex, WebRequest request) {
+
+        return handleExceptionInternal(
+                ex, DetalheErro.builder()
+                        .addDetalhe("Nenhum resultado foi encontrado.")
+                        .addErro(ex.getMessage())
+                        .addStatus(HttpStatus.BAD_REQUEST)
+                        .addHttpMethod(getHttpMethod(request))
+                        .addPath(getPath(request))
+                        .build(),
+                new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
 
     @ExceptionHandler({NaoExisteDaoException.class})
     public ResponseEntity<Object> entidadeNaoEncontrada(NaoExisteDaoException ex, WebRequest request) {
