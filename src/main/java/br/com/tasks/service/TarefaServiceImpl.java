@@ -1,4 +1,4 @@
-package br.com.tasks.service;
+package br.com.tasks.service.tarefa;
 
 import br.com.tasks.dao.TarefaDao;
 import br.com.tasks.domain.StatusTarefaEnum;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
 @Service

@@ -2,6 +2,7 @@ package br.com.tasks.dao;
 
 import br.com.tasks.domain.StatusTarefaEnum;
 import br.com.tasks.domain.Tarefa;
+import br.com.tasks.domain.Usuario;
 import br.com.tasks.exception.NaoExisteDaoException;
 import org.springframework.stereotype.Repository;
 
@@ -64,6 +65,18 @@ public class TarefaDaoImpl implements TarefaDao {
         CriteriaQuery<Tarefa> result = cb.createQuery(Tarefa.class);
         Root<Tarefa> tarefas = result.from(Tarefa.class);
         Predicate p = cb.equal(tarefas.get("inStatus"), idStatus);
+        result.select(tarefas).where(p);
+        TypedQuery<Tarefa> theQuery = entityManager.createQuery(result);
+        List<Tarefa> resultadoTarefas = theQuery.getResultList();
+        return resultadoTarefas;
+    }
+
+    @Override
+    public  List<Tarefa> buscaTarefasPorUsuario(Usuario usuario){
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Tarefa> result = cb.createQuery(Tarefa.class);
+        Root<Tarefa> tarefas = result.from(Tarefa.class);
+        Predicate p = cb.equal(tarefas.get("usuario"), usuario);
         result.select(tarefas).where(p);
         TypedQuery<Tarefa> theQuery = entityManager.createQuery(result);
         List<Tarefa> resultadoTarefas = theQuery.getResultList();

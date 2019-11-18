@@ -1,4 +1,4 @@
-package br.com.tasks.service;
+package br.com.tasks.service.usuario;
 
 import br.com.tasks.domain.Tarefa;
 import br.com.tasks.domain.Usuario;

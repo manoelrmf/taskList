@@ -1,9 +1,6 @@
-package br.com.tasks.service;
+package br.com.tasks.service.usuario;
 
-import br.com.tasks.dao.TarefaDao;
 import br.com.tasks.dao.UsuarioDao;
-import br.com.tasks.domain.StatusTarefaEnum;
-import br.com.tasks.domain.Tarefa;
 import br.com.tasks.domain.Usuario;
 import br.com.tasks.exception.IdNaoValidoServiceException;
 import org.springframework.beans.factory.annotation.Autowired;

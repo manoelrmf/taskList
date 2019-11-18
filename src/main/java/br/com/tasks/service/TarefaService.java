@@ -1,6 +1,7 @@
 package br.com.tasks.service;
 
 import br.com.tasks.domain.Tarefa;
+import br.com.tasks.domain.Usuario;
 
 import java.util.Date;
 import java.util.List;
@@ -22,6 +23,8 @@ public interface TarefaService {
     List<Tarefa> buscaTarefasEmAtraso();
 
     List<Tarefa> buscaTarefasConcluidas();
+
+    List<Tarefa> buscaTarefasPorUsuario(Long id);
 
     Tarefa updateTitulo(Long id, String titulo);
 
