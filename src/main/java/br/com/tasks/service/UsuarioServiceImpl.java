@@ -1,6 +1,9 @@
-package br.com.tasks.service.usuario;
+package br.com.tasks.service;
 
+import br.com.tasks.dao.TarefaDao;
 import br.com.tasks.dao.UsuarioDao;
+import br.com.tasks.domain.StatusTarefaEnum;
+import br.com.tasks.domain.Tarefa;
 import br.com.tasks.domain.Usuario;
 import br.com.tasks.exception.IdNaoValidoServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +50,12 @@ public class UsuarioServiceImpl implements UsuarioService {
         return dao.findAll();
     }
 
+    @Override @Transactional(readOnly = true)
+    public Usuario findUserForLoginAndPassword(String txLogin,String txPassword){
+        return dao.findByLoginAndPassword(txLogin, txPassword);
+    }
+
+    @Override
     public Usuario updateSenha(Long id, String txSenha){
         Usuario usuario = dao.findById(idValido(id));
         usuario.setTxSenha(txSenha);

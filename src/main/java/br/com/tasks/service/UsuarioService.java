@@ -1,4 +1,4 @@
-package br.com.tasks.service.usuario;
+package br.com.tasks.service;
 
 import br.com.tasks.domain.Tarefa;
 import br.com.tasks.domain.Usuario;
@@ -18,5 +18,7 @@ public interface UsuarioService {
     List<Usuario> findAll();
 
     Usuario updateSenha(Long id, String txSenha);
+
+    Usuario findUserForLoginAndPassword(String login, String password);
 
 }
