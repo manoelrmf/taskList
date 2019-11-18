@@ -1,11 +1,14 @@
 package br.com.tasks.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -16,7 +19,7 @@ public class Usuario implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    private String nome;
+    private String nome ;
 
     @Column(nullable = false)
     private String txLogin;
@@ -31,6 +34,10 @@ public class Usuario implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_cadastro")
     private Date dataCadastro;
+
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Tarefa> tarefas;
 
     public Long getId() {
         return id;
@@ -78,6 +85,14 @@ public class Usuario implements Serializable {
 
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public Set<Tarefa> getTarefas() {
+        return tarefas;
+    }
+
+    public void setTarefas(Set<Tarefa> tarefas) {
+        this.tarefas = tarefas;
     }
 
     @Override

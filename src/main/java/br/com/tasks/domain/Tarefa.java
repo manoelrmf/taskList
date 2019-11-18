@@ -1,6 +1,7 @@
 package br.com.tasks.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,6 +33,10 @@ public class Tarefa implements Serializable {
     @Column(name = "data_final")
     private Date dataFinal;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_usuario")
+    private Usuario usuario;
+
     public Long getId() {
         return id;
     }
@@ -47,7 +52,6 @@ public class Tarefa implements Serializable {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-
 
     public Date getDataInicio() {
         return dataInicio;
@@ -79,6 +83,14 @@ public class Tarefa implements Serializable {
 
     public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
