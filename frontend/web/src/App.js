@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import api from './services/api'
 import './App.css';
 
 function App() {
+  const [state, setstate] = useState([]);
+
+  useEffect(() => {
+    async function loadTarefas(){
+      const response = await api.get('/usuarios', {
+        data: {},
+      })
+      console.log(response.data)
+      setstate(response.data)
+    }
+
+    loadTarefas()
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <>
+    <div id="listaTarefas">
+      <ul>
+        {state.map(s => (
+        <li key={s.id}>{s.nome}</li>
+        ))}
+      </ul>
     </div>
+   </>
   );
 }
 
