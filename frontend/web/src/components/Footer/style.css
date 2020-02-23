@@ -1,0 +1,21 @@
+
+footer {
+    padding: 20px 0;
+    background-color: red;
+    text-align: center;
+  }
+  
+  
+  footer section p {
+    position: absolute;
+    padding: 10px 0;
+    display: inline;
+    margin: 0;
+    font-size: 18px;
+    color: white;
+  }
+  
+  .icon{
+    width: 40px;
+  }
+  
