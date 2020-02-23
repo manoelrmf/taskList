@@ -3,7 +3,7 @@
 
 *.lst
 
-target/tomcat/logs/
+target/
 
 *.properties
 
