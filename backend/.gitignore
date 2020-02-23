@@ -7,3 +7,4 @@ target/tomcat/logs/
 
 *.properties
 
+.idea/
