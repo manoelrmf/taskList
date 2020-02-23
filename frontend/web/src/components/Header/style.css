@@ -21,13 +21,15 @@ header section div p {
     padding: 14px 0;
     display: inline;
     color: #565656;
+    
 }
 
 header section div img {
     width: 40px;
-    border-radius: 50px;
-    background: #232323;
-    box-shadow:  30px 30px 60px #1e1e1e, 
-                 -30px -30px 60px #282828;
+    border: 5px #232323 solid;
+    border-radius: 71px;
+    background: linear-gradient(145deg, #191717, #1e1c1c);
+    box-shadow:  19px 19px 38px #141212, 
+             -19px -19px 38px #242222;
 }
 
