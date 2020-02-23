@@ -7,4 +7,3 @@ target/tomcat/logs/
 
 *.properties
 
-*.xml
