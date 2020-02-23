@@ -11,7 +11,7 @@ footer {
   
   footer section p {
     position: absolute;
-    padding: 10px 0;
+    padding: 10px 0 10px 6px;
     display: inline;
     margin: 0;
     font-size: 18px;
