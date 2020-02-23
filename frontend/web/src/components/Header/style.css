@@ -2,7 +2,6 @@
  header{
     height: 100px;
     width: 100%;
-    background-color: red;
   
 }
  header section div{
@@ -11,12 +10,13 @@
     padding: 12px;
     width: 200px;
     border-radius: 71px;
-    background: linear-gradient(315deg, #141616, #181a1a);
-    box-shadow:  -19px -19px 38px #0f1111, 
-                 19px 19px 38px #1d1f1f;
+    background: linear-gradient(145deg, #141616, #181a1a);
+    box-shadow:  19px 19px 38px #0f1111, 
+             -19px -19px 38px #1d1f1f;
  }
 
 header section div p {
+    position: absolute;
     margin: 0 0 0 12px;
     padding: 14px 0;
     display: inline;

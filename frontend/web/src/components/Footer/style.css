@@ -1,6 +1,10 @@
 
 footer {
-    padding: 20px 0;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding-bottom: 40px;
+    margin-top: auto;
     display: block;
   }
   
@@ -21,9 +25,9 @@ footer {
     position: relative;
     width: 200px;
     border-radius: 71px;
-    background: linear-gradient(315deg, #141616, #181a1a);
-    box-shadow:  -19px -19px 38px #0f1111, 
-                 19px 19px 38px #1d1f1f;
+    background: linear-gradient(145deg, #141616, #181a1a);
+    box-shadow:  19px 19px 38px #0f1111, 
+             -19px -19px 38px #1d1f1f;
   }
 
   .icon{
