@@ -22,8 +22,14 @@ main{
                -7px -7px 14px #272929;
 }
 
-textarea:focus, input:focus, select:focus button:focus {
+textarea:focus, input:focus, select:focus  {
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
 } 
+
+button:focus{
+  outline: thin dotted;
+      outline: 0px auto -webkit-focus-ring-color;
+      outline-offset: 0px;
+  }

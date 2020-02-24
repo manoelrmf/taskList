@@ -14,8 +14,6 @@ function BoxCard({ task, handleDelete }){
         }
     }, []);
   
-       
-
     return(
         <>
             <div className="box-card s-dark">
