@@ -13,7 +13,7 @@ function BoxCard({ task }){
                 <div className="text-content">
                   <textarea name="text" type="text" value={task.txDescricao} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
                 </div>
-                <Actions />
+                <Actions id={task.id} />
             </div>
         </>
     )
