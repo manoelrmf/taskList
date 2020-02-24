@@ -1,17 +1,18 @@
 import React, { useState, useEffect} from 'react'
 import './style.css'
 
+import dataUtils from '../../utils/dataUtils'
 import Actions from '../Actions'
 
 function BoxCard({ task, handleDelete, onSubmit }){
     const [titulo, setTitulo] = useState('')
     const [txDescricao, setTxDescricao] = useState('')
+    const [dataInicio, setDataInicio] = useState()
 
     useEffect(() => {
-        if(task !== undefined){
-            setTitulo(task.titulo)
-            setTxDescricao(task.txDescricao)
-        }
+        setTitulo(task.titulo)
+        setTxDescricao(task.txDescricao)
+        setDataInicio((task.dataInicio == null) ? dataUtils() : task.dataInicio)
     }, []);
 
     async function handleSubmit(e){
@@ -20,7 +21,7 @@ function BoxCard({ task, handleDelete, onSubmit }){
             titulo: titulo,
             txDescricao: txDescricao,
             inStatus: 0,
-            dataInicio: "23/02/2020",
+            dataInicio: dataInicio,
             dataFinal: "25/02/2020",
             usuario: {
                     id: 1,
@@ -39,7 +40,7 @@ function BoxCard({ task, handleDelete, onSubmit }){
     return(
         <>
             <div className="box-card s-dark">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} method="POST">
                     <div className="text-title">
                         <input name="title" type="text" value={titulo}  onChange={e => setTitulo(e.target.value)}  placeholder="Digite seu título" />
                     </div>

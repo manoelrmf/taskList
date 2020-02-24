@@ -37,6 +37,7 @@ function Main(){
     }
 
     async function handleAddTask(data){
+      console.log(data)
       const response = await api.post('/tarefas', data)
       if(response.status == 201){
         listaTarefas()
