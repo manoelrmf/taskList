@@ -61,9 +61,7 @@ function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
 
       async function handleDigitar(e){
         e.preventDefault()
-        console.log('asdasdasd')
-        handleEditTask(data, task.id)
-
+        if(task.id != null) handleEditTask(data, task.id)
       }
     
     return(
@@ -74,7 +72,7 @@ function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
                         <input name="title" type="text" value={titulo}  onChange={e => setTitulo(e.target.value)} onBlur={handleDigitar} placeholder="Digite seu título" />
                     </div>
                     <div className="text-content">
-                    <textarea name="text" type="text" value={txDescricao}  onChange={e => setTxDescricao(e.target.value)} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
+                    <textarea name="text" type="text" value={txDescricao}  onChange={e => setTxDescricao(e.target.value)} onBlur={handleDigitar} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
                     </div>
                     <Actions id={task.id} handleDelete={handleDelete} handleEditar={handleEditar} />
                 </form>
