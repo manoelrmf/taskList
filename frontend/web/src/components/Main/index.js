@@ -8,9 +8,7 @@ function Main(){
         <>
            <main>
                 <div className="boxes">
-                    <BoxCard  title="Terminar esse projeto"/>
-                   
-
+                    <BoxCard title="Terminar esse projeto"/>
                 </div>
            </main>
         </>
