@@ -3,15 +3,15 @@ import './style.css'
 
 import Actions from '../Actions'
 
-function BoxCard({ title }){
+function BoxCard({ task }){
     return(
         <>
             <div className="box-card s-dark">
                 <div className="text-title">
-                    <input name="title" type="text" value={title} placeholder="Título" />
+                    <input name="title" type="text" value={task.titulo} placeholder="Digite seu título" />
                 </div>
                 <div className="text-content">
-                  <textarea name="text" type="text" placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
+                  <textarea name="text" type="text" value={task.txDescricao} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
                 </div>
                 <Actions />
             </div>
