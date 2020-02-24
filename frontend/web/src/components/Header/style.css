@@ -5,9 +5,9 @@
   
 }
  header section div{
-    margin: 10px;
+    margin: 15px;
     float: right;
-    padding: 12px;
+    padding: 8px;
     width: 200px;
     border-radius: 71px;
     background: linear-gradient(145deg, #141616, #181a1a);
@@ -17,16 +17,18 @@
 
 header section div p {
     position: absolute;
-    margin: 0 0 0 12px;
-    padding: 14px 0;
+    margin: 0 0 0 10px;
+    padding: 18px 7px;
     display: inline;
+    font-size: 16px;
     color: #565656;
     
 }
 
 header section div img {
     width: 40px;
-    border: 5px #232323 solid;
+    padding: 5px 5px;
+    border: 1px #232323 solid;
     border-radius: 71px;
     background: linear-gradient(145deg, #191717, #1e1c1c);
     box-shadow:  19px 19px 38px #141212, 
