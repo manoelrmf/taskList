@@ -15,6 +15,22 @@ function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
         setDataInicio((task.dataInicio == null) ? dataUtils() : task.dataInicio)
     }, []);
 
+    var data = {
+        titulo: titulo,
+        txDescricao: txDescricao,
+        inStatus: 0,
+        dataInicio: dataInicio,
+        dataFinal: "25/02/2020",
+        usuario: {
+                id: 1,
+                nome: "Manoel Ribeiro",
+                txLogin: "admin",
+                txSenha: "admin",
+                dataNascimento: "18/07/2000",
+                dataCadastro: "23/02/2020"
+        }
+    }
+
     async function handleSubmit(e){
         e.preventDefault()
         await onSubmit({
@@ -39,22 +55,15 @@ function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
 
       async function handleEditar(e, id){
         e.preventDefault()
-        var data = {
-            titulo: titulo,
-            txDescricao: txDescricao,
-            inStatus: 0,
-            dataInicio: dataInicio,
-            dataFinal: "25/02/2020",
-            usuario: {
-                    id: 1,
-                    nome: "Manoel Ribeiro",
-                    txLogin: "admin",
-                    txSenha: "admin",
-                    dataNascimento: "18/07/2000",
-                    dataCadastro: "23/02/2020"
-            }
-        }
+       
         handleEditTask(data, id)
+      }
+
+      async function handleDigitar(e){
+        e.preventDefault()
+        console.log('asdasdasd')
+        handleEditTask(data, task.id)
+
       }
     
     return(
@@ -62,7 +71,7 @@ function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
             <div className="box-card s-dark">
                 <form onSubmit={handleSubmit} method="POST">
                     <div className="text-title">
-                        <input name="title" type="text" value={titulo}  onChange={e => setTitulo(e.target.value)}  placeholder="Digite seu título" />
+                        <input name="title" type="text" value={titulo}  onChange={e => setTitulo(e.target.value)} onBlur={handleDigitar} placeholder="Digite seu título" />
                     </div>
                     <div className="text-content">
                     <textarea name="text" type="text" value={txDescricao}  onChange={e => setTxDescricao(e.target.value)} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />

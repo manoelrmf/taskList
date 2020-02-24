@@ -14,17 +14,11 @@ function Actions({ id, handleDelete, handleEditar }){
                 </>
             )
         }
-
-
     }
-
-    
-   
     return(
         <>
            <div className="opcoes">
-                {renderBtnAdd(id)}
-                
+                {renderBtnAdd(id)}  
            </div>
         </>
     )
