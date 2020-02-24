@@ -1,0 +1,17 @@
+ div .opcoes{
+    float: right;
+}
+
+div .opcoes button{
+    margin: 0px 8px;
+    width: 30px;
+    height: 30px;
+    color: #565656;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.icons-opcoes{
+    width: 15px;
+}

@@ -22,7 +22,7 @@ main{
                -7px -7px 14px #272929;
 }
 
-textarea:focus, input:focus, select:focus {
+textarea:focus, input:focus, select:focus button:focus {
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;

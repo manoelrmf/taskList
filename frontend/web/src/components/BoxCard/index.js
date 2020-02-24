@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 
+import Actions from '../Actions'
 
 function BoxCard({ title }){
     return(
@@ -12,6 +13,7 @@ function BoxCard({ title }){
                 <div className="text-content">
                   <textarea name="text" type="text" placeholder="Descreva sua tarefa ..." rows="3" cols="40" />
                 </div>
+                <Actions />
             </div>
         </>
     )
