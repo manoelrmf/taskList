@@ -38,10 +38,14 @@ function Main(){
         deleteTarefa()
     }
 
+    const novaTarefa = {
+
+    }
     return(
         <>
            <main>
                 <div className="boxes">
+                    <BoxCard task={novaTarefa}/>
                     {tarefas.map(task => (
                         <BoxCard key={task.id} task={task} handleDelete={excluir} />
                     ))}               
