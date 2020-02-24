@@ -24,10 +24,7 @@ footer {
     margin-right: auto;
     position: relative;
     width: 200px;
-    border-radius: 71px;
-    background: linear-gradient(145deg, #141616, #181a1a);
-    box-shadow:  19px 19px 38px #0f1111, 
-             -19px -19px 38px #1d1f1f;
+  
   }
 
   .icon{

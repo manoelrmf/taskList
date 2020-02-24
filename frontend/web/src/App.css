@@ -12,3 +12,10 @@ html, body {
 main{
   display: block;
 }
+
+.s-dark{
+  border-radius: 50px;
+  background: #222424;
+  box-shadow:  7px 7px 14px #1d1f1f, 
+               -7px -7px 14px #272929;
+}

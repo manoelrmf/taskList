@@ -5,7 +5,7 @@ function Footer(){
     return(
      <footer>
       <section>
-        <div>
+        <div className="s-dark">
         <a href="https://github.com/manoribeiro" target="_blank">
             <img src="icons/github.png" className="icon" />
             <p>@manoribeiro</p>
