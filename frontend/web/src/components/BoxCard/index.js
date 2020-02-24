@@ -3,7 +3,7 @@ import './style.css'
 
 import Actions from '../Actions'
 
-function BoxCard({ task, handleDelete }){
+function BoxCard({ task, handleDelete, onSubmit }){
     const [titulo, setTitulo] = useState('')
     const [txDescricao, setTxDescricao] = useState('')
 
@@ -13,17 +13,41 @@ function BoxCard({ task, handleDelete }){
             setTxDescricao(task.txDescricao)
         }
     }, []);
-  
+
+    async function handleSubmit(e){
+        e.preventDefault()
+        await onSubmit({
+            titulo: titulo,
+            txDescricao: txDescricao,
+            inStatus: 0,
+            dataInicio: "23/02/2020",
+            dataFinal: "25/02/2020",
+            usuario: {
+                    id: 1,
+                    nome: "Manoel Ribeiro",
+                    txLogin: "admin",
+                    txSenha: "admin",
+                    dataNascimento: "18/07/2000",
+                    dataCadastro: "23/02/2020"
+            }
+        })
+
+        setTitulo('')
+        setTxDescricao('')
+      }
+    
     return(
         <>
             <div className="box-card s-dark">
-                <div className="text-title">
-                    <input name="title" type="text" value={titulo}  onChange={e => setTitulo(e.target.value)}  placeholder="Digite seu título" />
-                </div>
-                <div className="text-content">
-                  <textarea name="text" type="text" value={txDescricao}  onChange={e => setTxDescricao(e.target.value)} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
-                </div>
-                <Actions id={task.id} handleDelete={handleDelete} />
+                <form onSubmit={handleSubmit}>
+                    <div className="text-title">
+                        <input name="title" type="text" value={titulo}  onChange={e => setTitulo(e.target.value)}  placeholder="Digite seu título" />
+                    </div>
+                    <div className="text-content">
+                    <textarea name="text" type="text" value={txDescricao}  onChange={e => setTxDescricao(e.target.value)} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
+                    </div>
+                    <Actions id={task.id} handleDelete={handleDelete} />
+                </form>
             </div>
         </>
     )

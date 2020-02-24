@@ -18,7 +18,6 @@ function Main(){
           const response = await api.get('/tarefas', {
             data: {},
           })
-          console.log(response.data)
           setTarefas(response.data)
         }
         loadTarefas()
@@ -30,12 +29,18 @@ function Main(){
             const response = await api.delete('/tarefas/'+id, {
                 data: {},
             })
-            console.log(response)
             if (response.status == 204){
               listaTarefas()
             }
         }
         deleteTarefa()
+    }
+
+    async function handleAddTask(data){
+      const response = await api.post('/tarefas', data)
+      if(response.status == 201){
+        listaTarefas()
+      }
     }
 
     const novaTarefa = {
@@ -45,9 +50,9 @@ function Main(){
         <>
            <main>
                 <div className="boxes">
-                    <BoxCard task={novaTarefa}/>
+                    <BoxCard task={novaTarefa} onSubmit={handleAddTask} />
                     {tarefas.map(task => (
-                        <BoxCard key={task.id} task={task} handleDelete={excluir} />
+                        <BoxCard key={task.id} task={task} handleDelete={excluir}  />
                     ))}               
                  </div>
            </main>

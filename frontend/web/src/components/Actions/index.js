@@ -8,7 +8,7 @@ function Actions({ id, handleDelete }){
    
     function renderBtnAdd(id){
         if(id == undefined){
-            return <button className="s-dark" >+</button>
+            return <button className="s-dark" type="submit" >+</button>
         }else {
             return (
                 <>
