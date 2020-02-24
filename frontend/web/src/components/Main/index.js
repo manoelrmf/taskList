@@ -121,7 +121,7 @@ function Main(){
                         {Object.entries(colunas).map(([id, coluna]) => {
                           return (
                             <div className="box-style s-dark">
-                              <h2>{coluna.name}</h2>
+                              <h3>{coluna.name}</h3>
                               <div style={{margin: 8}}>
                               <Droppable droppableId={id} key={id} style={{margin: 8}}>
                                 {(provided, snapshot) => {
