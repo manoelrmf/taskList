@@ -3,6 +3,7 @@ import api from './services/api'
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Main from './components/Main';
 
 function App() {
   const [state, setstate] = useState([]);
@@ -20,9 +21,9 @@ function App() {
   }, []);
 
   return (
-   <>
+   <>  
     <Header />
-    <main>asdasda</main>
+    <Main />
     <Footer />
    </>
   );
