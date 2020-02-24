@@ -36,6 +36,14 @@ function Main(){
         deleteTarefa()
     }
 
+    function editar(data, id) {
+      async function editarTarefa(){
+          const response = await api.put('/tarefas/'+id, data)
+          console.log(response)
+      }
+      editarTarefa()
+  }
+
     async function handleAddTask(data){
       console.log(data)
       const response = await api.post('/tarefas', data)
@@ -53,7 +61,7 @@ function Main(){
                 <div className="boxes">
                     <BoxCard task={novaTarefa} onSubmit={handleAddTask} />
                     {tarefas.map(task => (
-                        <BoxCard key={task.id} task={task} handleDelete={excluir}  />
+                        <BoxCard key={task.id} task={task} handleDelete={excluir} handleEditTask={editar}  />
                     ))}               
                  </div>
            </main>
