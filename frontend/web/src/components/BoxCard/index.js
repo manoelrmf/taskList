@@ -11,7 +11,7 @@ function BoxCard({ title }){
                     <input name="title" type="text" value={title} placeholder="Título" />
                 </div>
                 <div className="text-content">
-                  <textarea name="text" type="text" placeholder="Descreva sua tarefa ..." rows="3" cols="40" />
+                  <textarea name="text" type="text" placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
                 </div>
                 <Actions />
             </div>
