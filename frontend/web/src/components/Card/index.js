@@ -2,11 +2,12 @@ import React from 'react'
 import './style.css'
 
 
-function BoxCard(){
+function Card(){
     return(
         <>
+           
         </>
     )
 }
 
-export default BoxCard
+export default Card

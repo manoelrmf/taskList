@@ -1,6 +1,10 @@
+div.boxes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    column-gap: 40px;
+}
+
 main {
-    position: absolute;
-    background-color: red;
-    width: auto;
-    height: auto;
+   padding: 0px 40px;
 }

@@ -3,6 +3,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #232323;
+  color: #565656;
+
 }
 
 html, body {
@@ -19,3 +21,9 @@ main{
   box-shadow:  7px 7px 14px #1d1f1f, 
                -7px -7px 14px #272929;
 }
+
+textarea:focus, input:focus, select:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+} 

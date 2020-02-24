@@ -1,6 +1,24 @@
-main {
-    position: absolute;
-    background-color: red;
-    width: auto;
-    height: auto;
+.box-card {
+    margin-top: 30px;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+div.box-card .text-title{
+    padding: 2px;
+    border-bottom: 2px solid;
+}
+
+div.box-card .text-title input{
+    width: 100%;
+    font-size: 18px;
+    background-color: transparent;
+    color: #565656;
+    border: none;
+}
+
+div.box-card .text-content{
+    font-size: 16px;
+    padding: 8px 8px;
 }
