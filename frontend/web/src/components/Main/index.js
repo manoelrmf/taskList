@@ -10,6 +10,10 @@ function Main(){
     const [tarefas, setTarefas] = useState([]);
 
     useEffect(() => {
+      listaTarefas()
+      }, []);
+
+      function listaTarefas(){
         async function loadTarefas(){
           const response = await api.get('/tarefas', {
             data: {},
@@ -17,17 +21,29 @@ function Main(){
           console.log(response.data)
           setTarefas(response.data)
         }
-    
         loadTarefas()
-      }, []);
+      }
     
-    
+      function excluir(e, id) {
+        e.preventDefault();
+        async function deleteTarefa(){
+            const response = await api.delete('/tarefas/'+id, {
+                data: {},
+            })
+            console.log(response)
+            if (response.status == 204){
+              listaTarefas()
+            }
+        }
+        deleteTarefa()
+    }
+
     return(
         <>
            <main>
                 <div className="boxes">
                     {tarefas.map(task => (
-                        <BoxCard key={task.id} task={task} />
+                        <BoxCard key={task.id} task={task} handleDelete={excluir} />
                     ))}               
                  </div>
            </main>

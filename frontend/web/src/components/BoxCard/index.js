@@ -3,7 +3,7 @@ import './style.css'
 
 import Actions from '../Actions'
 
-function BoxCard({ task }){
+function BoxCard({ task, handleDelete }){
     return(
         <>
             <div className="box-card s-dark">
@@ -13,7 +13,7 @@ function BoxCard({ task }){
                 <div className="text-content">
                   <textarea name="text" type="text" value={task.txDescricao} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
                 </div>
-                <Actions id={task.id} />
+                <Actions id={task.id} handleDelete={handleDelete} />
             </div>
         </>
     )
