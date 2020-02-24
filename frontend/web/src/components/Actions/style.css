@@ -1,5 +1,7 @@
  div .opcoes{
-    float: right;
+    margin-left: 70%;
+    padding:10px 0;
+    
 }
 
 div .opcoes button{

@@ -66,7 +66,7 @@ function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
     
     return(
         <>
-            <div className="box-card s-dark">
+            <div >
                 <form onSubmit={handleSubmit} method="POST">
                     <div className="text-title">
                         <input name="title" type="text" value={titulo}  onChange={e => setTitulo(e.target.value)} onBlur={handleDigitar} placeholder="Digite seu título" />
