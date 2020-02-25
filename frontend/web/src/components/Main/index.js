@@ -67,8 +67,6 @@ function Main(){
 
     useEffect(() => {
       listaTarefas()
-      setColunas(columnsFromBackend)
-
     }, []);
 
       function listaTarefas(){
@@ -109,9 +107,7 @@ function Main(){
               value.items = concluida
             }
           }
-
           setColunas(columnsFromBackend)
-
         }
         loadTarefas()
       }
