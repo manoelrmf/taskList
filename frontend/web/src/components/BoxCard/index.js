@@ -4,7 +4,7 @@ import './style.css'
 import dataUtils from '../../utils/dataUtils'
 import Actions from '../Actions'
 
-function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
+function BoxCard({ task, handleDelete, handleEditTask, onSubmit, draggableId}){
     const [titulo, setTitulo] = useState('')
     const [txDescricao, setTxDescricao] = useState('')
     const [dataInicio, setDataInicio] = useState()
@@ -74,7 +74,7 @@ function BoxCard({ task, handleDelete, handleEditTask, onSubmit }){
                     <div className="text-content">
                     <textarea name="text" type="text" value={txDescricao}  onChange={e => setTxDescricao(e.target.value)} onBlur={handleDigitar} placeholder="Descreva sua tarefa ..." rows="4" cols="40" />
                     </div>
-                    <Actions id={task.id} handleDelete={handleDelete} handleEditar={handleEditar} />
+                    <Actions id={task.id} handleDelete={handleDelete} draggableId={draggableId} handleEditar={handleEditar} />
                 </form>
             </div>
         </>

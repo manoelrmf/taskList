@@ -1,7 +1,7 @@
 import React  from 'react'
 import './style.css'
 
-function Actions({ id, handleDelete, handleEditar }){
+function Actions({ id, handleDelete, handleEditar, draggableId }){
    
     function renderBtnAdd(id){
         if(id == undefined){
@@ -10,7 +10,7 @@ function Actions({ id, handleDelete, handleEditar }){
             return (
                 <>
                  <button className="s-dark" onClick={(e) => handleEditar(e,id)}><img src="./icons/editar.png" className="icons-opcoes" /></button>
-                 <button className="s-dark" onClick={(e) => handleDelete(e,id)} ><img src="./icons/excluir.png" className="icons-opcoes" /></button> 
+                 <button className="s-dark" onClick={(e) => handleDelete(e,id, draggableId)} ><img src="./icons/excluir.png" className="icons-opcoes" /></button> 
                 </>
             )
         }

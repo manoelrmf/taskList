@@ -95,8 +95,8 @@ function Main(){
         }
         loadTarefas()
       }
-    
-      function excluir(e, id) {
+
+      function excluir(e, id, index) {
         e.preventDefault();
         async function deleteTarefa(){
             const response = await api.delete('/tarefas/'+id, {
@@ -104,7 +104,11 @@ function Main(){
             })
             if (response.status == 204){
               listaTarefas()
-            
+              for (var [key, value] of Object.entries(columnsFromBackend)) {
+                if(value.tipo == 0){
+                  value.items.splice(index, 1)
+                }
+              }
             }
         }
         deleteTarefa()
@@ -167,7 +171,7 @@ function Main(){
                                                     ...provided.draggableProps.style
                                                   }}
                                                 >
-                                                    <BoxCard key={item.id} task={item} handleDelete={excluir} handleEditTask={editar}  />
+                                                    <BoxCard key={item.id} task={item} handleDelete={excluir} draggableId={index} handleEditTask={editar}  />
                                                  </div>
                                               )
                                             }}
