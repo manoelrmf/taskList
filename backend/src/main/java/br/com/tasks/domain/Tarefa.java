@@ -2,7 +2,6 @@ package br.com.tasks.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
