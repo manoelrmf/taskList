@@ -77,21 +77,41 @@ function Main(){
             data: {},
           })
           setTarefas(response.data)
-
-
+          console.log(response.data)
           for (var [key, value] of Object.entries(response.data)) {
             Object.assign(response.data[key], { uid: uuid() })
           }
-          console.log('antes')
-          console.log(columnsFromBackend)
+       
           for (var [key, value] of Object.entries(columnsFromBackend)) {
             if(value.tipo == 0){
-              setColunas(columnsFromBackend)
-              value.items = response.data
+              var aFazer = [];
+              for (var x in response.data){
+                if(response.data[x].inStatus == 0){
+                  aFazer.push(response.data[x]);
+                }
+              }
+              value.items = aFazer
+            }else if (value.tipo == 1){
+              var emAndamento = [];
+              for (var x in response.data){
+                if(response.data[x].inStatus == 1){
+                  emAndamento.push(response.data[x]);
+                }
+              }
+              value.items = emAndamento
+            }else{
+              var concluida = [];
+              for (var x in response.data){
+                if(response.data[x].inStatus == 2){
+                  concluida.push(response.data[x]);
+                }
+              }
+              value.items = concluida
             }
           }
-          console.log("despos")
-          console.log(columnsFromBackend)
+
+          setColunas(columnsFromBackend)
+
         }
         loadTarefas()
       }
