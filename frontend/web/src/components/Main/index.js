@@ -5,22 +5,20 @@ import BoxCard from '../BoxCard'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import uuid from 'uuid/v4'
 
-const itemsFromBackend = [
-  {id: uuid(), content: 'First task'},
-
-]
-
-const columnsFromBackend =
+let columnsFromBackend =
   {
     [uuid()]: {
+      tipo: 0,
       name: 'A fazer',
-      items: itemsFromBackend
+      items: []
     },
     [uuid()]: {
+      tipo: 1,
       name: 'Em andamento',
       items: []
     },
     [uuid()]: {
+      tipo: 2,
       name: 'Concluído',
       items: []
     }
@@ -64,12 +62,14 @@ const onDragEnd = (result, colunas, setColunas) => {
 }
 
 function Main(){
-    const [colunas, setColunas] = useState(columnsFromBackend);
+    const [colunas, setColunas] = useState([]);
     const [tarefas, setTarefas] = useState([]);
 
     useEffect(() => {
       listaTarefas()
-      }, []);
+      setColunas(columnsFromBackend)
+
+    }, []);
 
       function listaTarefas(){
         async function loadTarefas(){
@@ -77,6 +77,21 @@ function Main(){
             data: {},
           })
           setTarefas(response.data)
+
+
+          for (var [key, value] of Object.entries(response.data)) {
+            Object.assign(response.data[key], { uid: uuid() })
+          }
+          console.log('antes')
+          console.log(columnsFromBackend)
+          for (var [key, value] of Object.entries(columnsFromBackend)) {
+            if(value.tipo == 0){
+              setColunas(columnsFromBackend)
+              value.items = response.data
+            }
+          }
+          console.log("despos")
+          console.log(columnsFromBackend)
         }
         loadTarefas()
       }
@@ -89,6 +104,7 @@ function Main(){
             })
             if (response.status == 204){
               listaTarefas()
+            
             }
         }
         deleteTarefa()
@@ -138,7 +154,7 @@ function Main(){
                                     >
                                       {coluna.items.map((item, index) => {
                                         return (
-                                          <Draggable key={item.id} draggableId={item.id} index={index} className="s-dark">
+                                          <Draggable key={item.uid} draggableId={item.uid} index={index} className="s-dark">
                                             {(provided, snapshot) => {
                                               return (
                                                 <div  className="box-card s-dark" 
